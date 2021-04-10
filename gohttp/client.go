@@ -5,6 +5,7 @@ package gohttp
 type HttpClient struct {
 }
 
+// these are functions
 func Get() {}
 
 func Post() {}
