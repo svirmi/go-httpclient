@@ -8,5 +8,10 @@ import (
 
 func main() {
 	client := gohttp.HttpClient{}
+
+	client.Get() // method invocation
+
+	gohttp.Patch() // access to function
+
 	fmt.Println(&client)
 }
