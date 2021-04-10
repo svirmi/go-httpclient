@@ -1,17 +1,13 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/svirmi/go-httpclient/gohttp"
 )
 
 func main() {
-	client := gohttp.HttpClient{}
+	client := gohttp.New()
 
-	client.Get() // method invocation
+	gohttp.PublicFunc()
 
-	gohttp.Patch() // access to function
-
-	fmt.Println(&client)
+	client.Get()
 }

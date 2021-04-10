@@ -1,11 +1,15 @@
 package gohttp
 
-// all started with Uppercase letter - exported and publically available outside this package
+type httpclient struct{}
 
-type whatever struct{}
+// only New() exported and publically available outside this package
+func New() httpclient {
+	client := &httpclient{}
+	return *client
+}
 
 type HttpClient interface {
-	Get() string
+	Get()
 	Post()
 	Put()
 	Patch()
@@ -15,12 +19,16 @@ type HttpClient interface {
 // any struct implemented these methods will be concidered HttpClient
 
 // implementations of interface
-func (c *whatever) Get() string {}
+func (c *httpclient) Get() {}
 
-func (c *whatever) Post() {}
+func (c *httpclient) Post() {}
 
-func (c *whatever) Put() {}
+func (c *httpclient) Put() {}
 
-func (c *whatever) Patch() {}
+func (c *httpclient) Patch() {}
 
-func (c *whatever) Delete() {}
+func (c *httpclient) Delete() {}
+
+func PublicFunc() {
+
+}
