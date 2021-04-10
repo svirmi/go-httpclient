@@ -3,14 +3,16 @@ package main
 import (
 	"fmt"
 
-	"github.com/stripe/stripe-go/v72"
+	"github.com/vanng822/go-solr/solr"
 )
 
 func main() {
-	params := &stripe.CustomerParams{
-		Description: stripe.String("Stripe Developer"),
-		Email:       stripe.String("gostripe@stripe.com"),
-	}
-	fmt.Println(&params)
+	si, _ := solr.NewSolrInterface("http://localhost:8983/solr", "collection1")
+
+	query := solr.NewQuery()
+	query.Q("*:*")
+	s := si.Search(query)
+	r, _ := s.Result(nil)
+	fmt.Println(r.Results.Docs)
 	fmt.Println("Hello World!")
 }
