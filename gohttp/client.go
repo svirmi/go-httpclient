@@ -5,9 +5,10 @@ package gohttp
 type HttpClient struct {
 }
 
-// these are functions
-func Get() {}
+// this is a method
+func (c *HttpClient) Get() {}
 
+// these are functions
 func Post() {}
 
 func Put() {}
