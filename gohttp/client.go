@@ -1,5 +1,7 @@
 package gohttp
 
+import "net/http"
+
 type httpclient struct{}
 
 // only New() exported and publically available outside this package
@@ -19,7 +21,9 @@ type HttpClient interface {
 // any struct implemented these methods will be concidered HttpClient
 
 // implementations of interface
-func (c *httpclient) Get() {}
+func (c *httpclient) Get(url string, headers http.Header) (*http.Response, error) {
+	return c.do(http.MethodGet, url, headers, nil)
+}
 
 func (c *httpclient) Post() {}
 
