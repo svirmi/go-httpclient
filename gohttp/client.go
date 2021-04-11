@@ -13,6 +13,8 @@ func New() httpclient {
 }
 
 type HttpClient interface {
+	SetHeaders(headers http.Header)
+
 	Get(url string, headers http.Header) (*http.Response, error)
 	Post(url string, headers http.Header, body interface{}) (*http.Response, error)
 	Put(url string, headers http.Header, body interface{}) (*http.Response, error)
@@ -41,4 +43,8 @@ func (c *httpclient) Patch(url string, headers http.Header, body interface{}) (*
 
 func (c *httpclient) Delete(url string, headers http.Header) (*http.Response, error) {
 	return c.do(http.MethodDelete, url, headers, nil)
+}
+
+func (c *httpclient) SetHeaders(headers http.Header) {
+	c.Headers = headers
 }
