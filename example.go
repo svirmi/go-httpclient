@@ -7,7 +7,8 @@ import (
 func main() {
 	client := gohttp.New()
 
+	client.Get()
+
 	gohttp.PublicFunc()
 
-	client.Get()
 }
