@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"net/http"
 
 	"github.com/svirmi/go-httpclient/gohttp"
 )
@@ -10,7 +11,10 @@ import (
 func main() {
 	client := gohttp.New()
 
-	response, err := client.Get("https://api.github.com", nil)
+	headers := make(http.Header)
+	headers.Set("Authorization", "Bearer ABC-123")
+
+	response, err := client.Get("https://api.github.com", headers)
 
 	if err != nil {
 		panic(err)
