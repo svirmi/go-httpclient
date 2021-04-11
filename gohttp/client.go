@@ -2,7 +2,9 @@ package gohttp
 
 import "net/http"
 
-type httpclient struct{}
+type httpclient struct {
+	Headers http.Header
+}
 
 // only New() exported and publically available outside this package
 func New() httpclient {
