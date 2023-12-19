@@ -1,1 +1,1 @@
-#### making HTTP client with golang for education
+#### golang HTTP client
